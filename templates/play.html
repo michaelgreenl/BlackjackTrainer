@@ -1,7 +1,6 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/play.css' %}">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,18 +10,5 @@
 </head>
 <body>
     {% include "navbar.html" with curr_template='play'%}
-    <div class="canvas">
-        <div class="title-screen">
-            <div class="title-screen-logo">
-                <h1>Blackjack</h1>
-            </div>
-            <div class="title-screen-buttons">
-                <ul class="title-screen-list">
-                    <li class="title-list-option" id="title-option-play"><button>Play</button></li>
-                    <li class="title-list-option" id="title-option-rules"><button>Rules</button></li>
-                </ul>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
