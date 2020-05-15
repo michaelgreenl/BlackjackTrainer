@@ -1,92 +1,56 @@
 .navbar {
-    background-color: var(--background-secondary);
-    width: 11vh;
-    height: 100%;
     position: fixed;
-    transition: width var(--transition-speed);
-    z-index: 1000;
+    background-color: var(--background-secondary);
+    height: 10vh;
+    width: 100%;
+    display: flex;
+}
+
+.navbar-logo,
+.navbar-nav {
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-logo {
+    align-items: center;
+    padding-left: 4vh;
 }
 
 .navbar-nav {
-    position: relative;
-    padding: 0;
-    margin: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: flex-end;
+    padding-right: 4vh;
     list-style: none;
 }
 
 .nav-item {
-    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo .nav-item {
+    font-size: 4vh;
+}
+
+.navbar-nav .nav-item {
+    font-size: 2.5vh;
+    margin: 0 2vh;
 }
 
 .nav-link {
-    height: 10vh;
-    display: flex;
-    align-items: center;
+    color: var(--text-secondary);
     text-decoration: none;
-    filter: grayscale(100%) opacity(0.8);
     transition: var(--transition-speed);
 }
 
-.nav-link .nav-link-text {
-    color: var(--text-primary);
-    margin-left: 1vh;
-    display: none;
-    font-size: 2.5vh;
-    font-weight: 300;
-}
-
-.nav-link .nav-icon {
-    width: 6vh;
-    min-width: 6vh;
-    margin: 0 2.5vh;
-}
-
-#nav-icon-play {
-    width: 9vh;
-    min-width: 9vh;
-    margin: 0 1vh;
-}
-
-.nav-link:hover {
-    filter: grayscale(0%) opacity(1);
+.navbar-nav .nav-link:hover {
+    /* FIXME: Add styles */
 }
 
 #curr-template {
-    filter: grayscale(0%) opacity(1);
-}
-
-.nav-icon .fa-primary {
-    color: var(--button1-primary);
-}
-
-.nav-icon .fa-secondary {
-    color: var(--button1-secondary);
-    opacity: 0.5;
-}
-
-.navbar:hover {
-    width: 40vh;
-}
-
-.navbar:hover .nav-link-text {
-    display: inline;
-}
-
-.navbar:hover #nav-icon-spade {
-    transform: rotate(90deg);
-}
-
-#nav-icon-spade {
-    transition: var(--transition-speed);
-}
-
-#nav-icon-spade {
-    color: var(--button2-primary);
-}
-
-#nav-home {
-    background-color: var(--background-tertiary);
+    /* FIXME: Add styles */
 }

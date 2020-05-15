@@ -3,98 +3,39 @@
 <link rel="stylesheet" type="text/css" href="{% static 'styles/navbar.css' %}">
 
 <div class="navbar">
+    <ul class="navbar-logo">
+        <li class="nav-item" id="nav-logo">
+            <a href="{% url 'BlackjackGame:home' %}" class="nav-link">
+                <span class="nav-link-text">BlackjackTrainer</span>
+            </a>
+        </li>
+    </ul>
     <ul class="navbar-nav">
-
-        <li class="nav-item" id="nav-home">
-            <a href="#" class="nav-link"
-                    {% if curr_template == 'home' %}
-                         id="curr-template"
-                    {% endif %}>
-                <svg class="nav-icon" id="nav-icon-spade"
-                     aria-hidden="true"
-                     focusable="false"
-                     data-prefix="fas"
-                     data-icon="spade"
-                     role="img"
-                     xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 512 512">
-                    <path fill="currentColor" d="M272.5 6.6c-9.3-8.8-23.8-8.8-33.1 0C191.4 52.4 53.6 185 32 208.9c-19.3 21.3-32 49.4-32 80.6C0 360 54.9 415.7 123.5 416c36.7.1 69.7-15.7 92.5-40.9-.1 36.6-.8 52.3-52.4 75.4-14.1 6.3-22.2 21.6-18.7 36.6 3.3 14.5 16.3 24.8 31.2 24.8h159.4c15.5 0 29.2-10.8 32.1-26 2.8-14.6-4.8-29.2-18.4-35.2-51.6-23-52.8-38.1-53-75.6 23.4 25.8 57.5 41.8 95.3 40.8 67.5-1.7 120.7-56.5 120.7-124 0-32.2-12.2-61.2-32-83.1C458.4 185 320.6 52.4 272.5 6.6z" class=""></path>
-                </svg>
-                <span class="nav-link-text" id="nav-home-text">BlackjackTrainer</span>
-            </a>
-        </li>
-
         <li class="nav-item" id="nav-play">
-            <a href="{% url 'BlackjackGame:play' %}" class="nav-link"
-                    {% if curr_template == 'play' %}
-                         id="curr-template"
-                    {% endif %}>
-                <svg class="nav-icon" id="nav-icon-play"
-                     xmlns="http://www.w3.org/2000/svg"
-                     enable-background="new 0 0 300 300"
-                     height="512px"
-                     viewBox="0 0 300 300"
-                     width="512px">
-                    <g>
-                        <g fill="#C75761"></g>
-                        <path d="m195.056 241.091h-106.112c-6.044 0-10.944-4.9-10.944-10.944v-158.112c0-6.044 4.9-10.944 10.944-10.944h106.112c6.044 0 10.944 4.9 10.944 10.944v158.112c0 6.044-4.9 10.944-10.944 10.944z" fill="#FDFEF6" data-original="#FFF"></path>
-                        <path d="m195.055 245.091h-106.11c-8.242 0-14.945-6.703-14.945-14.943v-158.114c0-8.24 6.703-14.943 14.945-14.943h106.109c8.242 0 14.945 6.703 14.945 14.943v158.113c.001 8.241-6.702 14.944-14.944 14.944zm-106.11-180c-3.828 0-6.945 3.115-6.945 6.943v158.113c0 3.828 3.117 6.943 6.945 6.943h106.109c3.828 0 6.945-3.115 6.945-6.943v-158.113c0-3.828-3.117-6.943-6.945-6.943z" fill="#C75761" data-original="#C75761" class="" style="fill:#AB464E;"></path>
-                        <path d="m178 197.7h88v56.522c0 8.404-19.699 15.217-44 15.217s-44-6.813-44-15.217z" fill="#C75761" data-original="#C75761" class="" style="fill:#C75761" data-old_color="#ffec95"></path>
-                        <path d="m222 273.439c-23.852 0-48-6.602-48-19.217v-56.522c0-2.209 1.789-4 4-4h88c2.211 0 4 1.791 4 4v56.521c0 12.616-24.148 19.218-48 19.218zm-40-71.739v52.521c0 3.807 14.117 11.217 40 11.217s40-7.41 40-11.217v-52.521z" fill="#4c241d" data-original="#4C241D" class="" style="fill:#AB464E;"></path>
-                        <ellipse cx="222" cy="197.7" fill="#ffce56" rx="44" ry="15.217" data-original="#FFCE56" class="active-path" style="fill:#C75761" data-old_color="#ffce56"></ellipse>
-                        <path d="m222 216.917c-23.852 0-48-6.602-48-19.217 0-12.617 24.148-19.219 48-19.219s48 6.602 48 19.219c0 12.616-24.148 19.217-48 19.217zm0-30.435c-25.883 0-40 7.41-40 11.219 0 3.807 14.117 11.217 40 11.217s40-7.41 40-11.217c0-3.809-14.117-11.219-40-11.219z" fill="#4c241d" data-original="#4C241D" class="" style="fill:#AB464E;opacity:0.5"></path>
-                        <path d="m222 235.353c-23.852 0-48-6.602-48-19.219 0-2.209 1.789-4 4-4s4 1.791 4 4c0 3.809 14.117 11.219 40 11.219s40-7.41 40-11.219c0-2.209 1.789-4 4-4s4 1.791 4 4c0 12.617-24.148 19.219-48 19.219z" fill="#4c241d" data-original="#4C241D" class="" style="fill:#AB464E;"></path>
-                        <path d="m222 255.353c-23.852 0-48-6.602-48-19.219 0-2.209 1.789-4 4-4s4 1.791 4 4c0 3.809 14.117 11.219 40 11.219s40-7.41 40-11.219c0-2.209 1.789-4 4-4s4 1.791 4 4c0 12.617-24.148 19.219-48 19.219z" fill="#4c241d" data-original="#4C241D" class="" style="fill:#AB464E;"></path>
-                        <path d="m142.352 195.851c-2.211 0-4-1.791-4-4v-23.775c0-2.209 1.789-4 4-4s4 1.791 4 4v23.775c0 2.209-1.79 4-4 4z" fill="#4c241d" data-original="#4C241D" class="" style="fill:#AB464E;"></path>
-                        <path d="m141.91 123.894s-28.09 29.722-28.09 37.739 6.987 14.515 15.606 14.515c5.129 0 9.639-2.332 12.484-5.885 2.845 3.553 7.356 5.885 12.484 5.885 8.618 0 15.605-6.498 15.605-14.515.001-8.016-28.089-37.739-28.089-37.739z" fill="#f53e28" data-original="#F53E28" class="" style="fill:#AB464E;"></path>
-                        <path d="m154.395 180.148c-4.637 0-9.004-1.523-12.484-4.277-3.48 2.754-7.848 4.277-12.484 4.277-10.809 0-19.605-8.307-19.605-18.516 0-8.67 20.41-31.201 29.184-40.486 1.508-1.598 4.305-1.598 5.812 0 8.772 9.285 29.182 31.816 29.182 40.486 0 10.209-8.797 18.516-19.605 18.516zm-12.485-13.885c1.215 0 2.363.553 3.121 1.5 2.23 2.787 5.645 4.385 9.363 4.385 6.398 0 11.605-4.717 11.605-10.516-.211-3.77-12.129-18.863-24.09-31.871-11.961 13.008-23.879 28.104-24.09 31.887 0 5.783 5.207 10.5 11.605 10.5 3.719 0 7.133-1.598 9.363-4.385.76-.947 1.908-1.5 3.123-1.5z" fill="#4c241d" data-original="#4C241D" class="" style="fill:#AB464E;"></path>
-                    </g>
-                </svg>
-                <span class="nav-link-text" id="nav-play-text">Play</span>
+            <a href="{% url 'BlackjackGame:play' %}" class="nav-link">
+                <span class="nav-link-text"
+                        {% if curr_template == 'play' %}
+                            id="curr-template"
+                        {% endif %}>
+                    Play</span>
             </a>
         </li>
-
         <li class="nav-item" id="nav-statistics">
-            <a href="#" class="nav-link"
-                    {% if curr_template == 'statistics' %}
-                         id="curr-template"
-                    {% endif %}>
-                <svg class="nav-icon" id="nav-icon-statistics"
-                     aria-hidden="true"
-                     focusable="false"
-                     data-prefix="fad"
-                     data-icon="chart-bar"
-                     role="img"
-                     xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 512 512">
-                    <g class="fa-group">
-                        <path fill="currentColor" d="M512 400v32a16 16 0 0 1-16 16H32a32 32 0 0 1-32-32V80a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16v304h432a16 16 0 0 1 16 16z" class="fa-secondary"></path>
-                        <path fill="currentColor" d="M275.2 96h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8zm-96 128h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8zm288-160h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8zm-96 96h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8z" class="fa-primary"></path>
-                    </g>
-                </svg>
-                <span class="nav-link-text" id="nav-statistics-text">Statistics</span>
+            <a href="#" class="nav-link">
+                <span class="nav-link-text"
+                        {% if curr_template == 'statistics' %}
+                            id="curr-template"
+                        {% endif %}>
+                    Statistics</span>
             </a>
         </li>
-
         <li class="nav-item" id="nav-account">
-            <a href="#" class="nav-link"
-                    {% if curr_template == 'account' %}
-                         id="curr-template"
-                    {% endif %}>
-                <svg class="nav-icon" id="nav-icon-account"
-                     aria-hidden="true"
-                     focusable="false"
-                     data-prefix="fad"
-                     data-icon="user-circle"
-                     role="img"
-                     xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 496 512">
-                    <g class="fa-group">
-                        <path fill="currentColor" d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8Zm0,96a88,88,0,1,1-88,88A88,88,0,0,1,248,104Zm0,344a191.61,191.61,0,0,1-146.5-68.2C120.3,344.4,157.1,320,200,320a24.76,24.76,0,0,1,7.1,1.1,124.67,124.67,0,0,0,81.8,0A24.76,24.76,0,0,1,296,320c42.9,0,79.7,24.4,98.5,59.8A191.61,191.61,0,0,1,248,448Z" class="fa-secondary"></path>
-                        <path fill="currentColor" d="M248,280a88,88,0,1,0-88-88A88,88,0,0,0,248,280Zm48,40a24.76,24.76,0,0,0-7.1,1.1,124.67,124.67,0,0,1-81.8,0A24.76,24.76,0,0,0,200,320c-42.9,0-79.7,24.4-98.5,59.8,68.07,80.91,188.84,91.32,269.75,23.25A192,192,0,0,0,394.5,379.8C375.7,344.4,338.9,320,296,320Z" class="fa-primary"></path>
-                    </g>
-                </svg>
-                <span class="nav-link-text" id="nav-account-text">Account</span>
+            <a href="#" class="nav-link">
+                <span class="nav-link-text"
+                        {% if curr_template == 'account' %}
+                            id="curr-template"
+                        {% endif %}>
+                    Account</span>
             </a>
         </li>
     </ul>
