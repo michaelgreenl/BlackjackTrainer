@@ -1,17 +1,11 @@
 * {
     font-family: Futura, serif;
     letter-spacing: 0.1ch;
-    font-weight: 300;
-    --text-primary: #FDFEF6;
-    --text-secondary: #C75761;
+    font-weight: 100;
+    --text-secondary: #FDFEF6;
     --background-primary: #FDFEF6;
-    --background-secondary: #2D2D2D;
-    --background-tertiary: #C75761;
-    --button1-primary: #C75761;
-    --button1-secondary: #AB464E;
-    --button2-primary: #333333;
-    --button2-secondary: #2D2D2D;
-    --transition-speed: 400ms ease;
+    --background-secondary: #7D353C;
+    --transition-speed: 200ms ease;
 }
 
 body {
