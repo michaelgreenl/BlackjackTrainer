@@ -49,6 +49,7 @@
 
 .navbar-nav .nav-link:hover {
     /* FIXME: Add styles */
+    filter: opacity(0.8);
 }
 
 #curr-template {
