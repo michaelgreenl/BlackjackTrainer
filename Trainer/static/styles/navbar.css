@@ -37,8 +37,8 @@
 }
 
 .navbar-nav .nav-item {
-    font-size: 2.5vh;
-    margin: 0 2vh;
+    font-size: 2.75vh;
+    margin: 0 3vh;
 }
 
 .nav-link {
@@ -48,10 +48,9 @@
 }
 
 .navbar-nav .nav-link:hover {
-    /* FIXME: Add styles */
     filter: opacity(0.8);
 }
 
 #curr-template {
-    /* FIXME: Add styles */
+    /* TODO: Add styles */
 }

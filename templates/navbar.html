@@ -5,7 +5,7 @@
 <div class="navbar">
     <ul class="navbar-logo">
         <li class="nav-item" id="nav-logo">
-            <a href="#" class="nav-link">
+            <a href="{% url 'Trainer:home' %}" class="nav-link">
                 <span class="nav-link-text">BlackjackTrainer</span>
             </a>
         </li>
@@ -20,22 +20,21 @@
                     Play</span>
             </a>
         </li>
-        <li class="nav-item" id="nav-statistics">
-            <a href="#" class="nav-link">
-                <span class="nav-link-text"
-                        {% if curr_template == 'statistics' %}
-                            id="curr-template"
-                        {% endif %}>
-                    Statistics</span>
-            </a>
-        </li>
+        {% if signed_in == True %}
+            <li class="nav-item" id="nav-statistics">
+                <a href="#" class="nav-link">
+                    <span class="nav-link-text"
+                            {% if curr_template == 'statistics' %}
+                                id="curr-template"
+                            {% endif %}>
+                        Statistics</span>
+                </a>
+            </li>
+        {% endif %}
         <li class="nav-item" id="nav-account">
             <a href="#" class="nav-link">
-                <span class="nav-link-text"
-                        {% if curr_template == 'account' %}
-                            id="curr-template"
-                        {% endif %}>
-                    Account</span>
+                <span class="nav-link-text" {% if curr_template == 'account' %} id="curr-template" {% endif %}>
+                    {% if signed_in == True %} Account {% else %} Login {% endif %}</span>
             </a>
         </li>
     </ul>
