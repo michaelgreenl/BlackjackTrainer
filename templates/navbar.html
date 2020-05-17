@@ -32,10 +32,15 @@
             </li>
         {% endif %}
         <li class="nav-item" id="nav-account">
-            <a href="#" class="nav-link">
-                <span class="nav-link-text" {% if curr_template == 'account' %} id="curr-template" {% endif %}>
-                    {% if signed_in == True %} Account {% else %} Login {% endif %}</span>
-            </a>
+            {% if signed_in == True %}
+                <a href="{% url 'Users:account' %}" class="nav-link">
+                    <span class="nav-link-text" {% if curr_template == 'account' %} id="curr-template" {% endif %}>Account</span>
+                </a>
+            {% else %}
+                <a href="{% url 'Users:login' %}" class="nav-link">
+                    <span class="nav-link-text" {% if curr_template == 'login' %} id="curr-template" {% endif %}>Login</span>
+                </a>
+            {% endif %}
         </li>
     </ul>
 </div>
