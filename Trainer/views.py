@@ -11,8 +11,16 @@ def home_view(request):
 def play_view(request):
     context = {
         'signed_in': signed_in_check(),
+        'curr_template': 'play',
     }
     return render(request, 'Trainer/play.html', context)
+
+
+def statistics_view(request):
+    context = {
+        'signed_in': signed_in_check(),
+        'curr_template': 'statistics',
+    }
 
 
 def signed_in_check():

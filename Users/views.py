@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 def register_view(request):
     context = {
         'signed_in': False,
+        'curr_template': 'login',
         'form': UserCreationForm,
     }
     return render(request, 'Users/register.html', context)
@@ -14,6 +15,7 @@ def register_view(request):
 def login_view(request):
     context = {
         'signed_in': False,
+        'curr_template': 'login',
     }
     return render(request, 'Users/login.html', context)
 
@@ -21,5 +23,6 @@ def login_view(request):
 def account_view(request):
     context = {
         'signed_in': True,
+        'curr_template': 'account',
     }
     return render(request, 'Users/account.html', context)
