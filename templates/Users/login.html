@@ -1,14 +1,92 @@
 {% load static %}
+{% load socialaccount %}
+{#{% providers_media_js %}#}
 
+<link rel="stylesheet" media="screen" href="{% static 'bootstrap/css/bootstrap.css' %}">
+<link rel="stylesheet" media="screen" href="{% static 'bootstrap/css/bootstrap-responsive.css' %}">
+<script type="module" href="{% static 'bootstrap/js/bootstrap.js' %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blackjack Trainer | Login</title>
+    {% if title %}
+        <title>Blackjack Trainer | {{ title }}</title>
+    {% else %}
+        <title>Blackjack Trainer</title>
+    {% endif %}
 </head>
 <body>
-    {% include 'navbar.html' %}
+    <div class="login-register-logo">
+        <a href="{% url 'Trainer:play' %}">
+            <h1>BlackjackTrainer</h1>
+        </a>
+    </div>
+    <div class="login-register">
+        <div class="login-content">
+            <form class="login-register-form" method="post">
+                {% csrf_token %}
+                <fieldset class="login-register-header">
+                    <legend>Sign in</legend>
+                </fieldset>
+                <div class="form-groups">
+                    <div class="group">
+                        <svg class="bi bi-person-fill"
+                             viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                        </svg>
+                        <input type="text" name="username" placeholder="Username">
+                    </div>
+                    <div class="group">
+                        <svg class="bi bi-lock-fill"
+                             viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="11" height="9" x="2.5" y="7" rx="2"></rect>
+                            <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 117 0v3h-1V4a2.5 2.5 0 00-5 0v3h-1V4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group login-register-footer">
+                    <a href="{% provider_login_url 'google' %}" class="social-icon-link" id="social-icon-google">
+                        <div>
+                            <svg class=""
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                                <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
+                                <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
+                                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="#" class="social-icon-link" id="social-icon-facebook">
+                        <div>
+                            <svg class=""
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 167.657 167.657" style="enable-background:new 0 0 167.657 167.657;" xml:space="preserve" width="512px" height="512px"><g><g>
+                                <path d="M83.829,0.349C37.532,0.349,0,37.881,0,84.178c0,41.523,30.222,75.911,69.848,82.57v-65.081H49.626   v-23.42h20.222V60.978c0-20.037,12.238-30.956,30.115-30.956c8.562,0,15.92,0.638,18.056,0.919v20.944l-12.399,0.006   c-9.72,0-11.594,4.618-11.594,11.397v14.947h23.193l-3.025,23.42H94.026v65.653c41.476-5.048,73.631-40.312,73.631-83.154   C167.657,37.881,130.125,0.349,83.829,0.349z" data-original="#010002" class="active-path" data-old_color="#010002" fill="#1977F2"></path>
+                            </g></g> </svg>
+                        </div>
+                    </a>
+                    <a href="#" class="social-icon-link" id="social-icon-twitter">
+                        <div>
+                            <svg class=""
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                <path style="fill:#03A9F4;" d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016  c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992  c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056  c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152  c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792  c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44  C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568  C480.224,136.96,497.728,118.496,512,97.248z"></path>
+                            </svg>
+                        </div>
+                    </a>
+                    <button class="btn-submit" type="submit">Sign In</button>
+                </div>
+                <small class="login-register-redirect">Don't have an account? <a href="{% url 'Users:register' %}">Sign up</a> </small>
+                <div class="alert-container">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" id="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

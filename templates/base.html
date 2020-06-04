@@ -1,0 +1,30 @@
+{% load static %}
+
+<link rel="stylesheet" media="screen" href="{% static 'bootstrap/css/bootstrap.css' %}">
+<link rel="stylesheet" media="screen" href="{% static 'bootstrap/css/bootstrap-responsive.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+<script type="module" src="{% static 'scripts/main.js' %}"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>Blackjack Trainer | {{ title }}</title>
+    {% else %}
+        <title>Blackjack Trainer</title>
+    {% endif %}
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" id="alert" style="position: absolute;">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

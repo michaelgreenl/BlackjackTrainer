@@ -1,46 +1,67 @@
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'styles/navbar.css' %}">
-
 <div class="navbar">
     <ul class="navbar-logo">
         <li class="nav-item" id="nav-logo">
-            <a href="{% url 'Trainer:home' %}" class="nav-link">
-                <span class="nav-link-text">BlackjackTrainer</span>
+            <a href="{% url 'Trainer:play' %}" class="nav-link">
+                <span id="nav-link-logo">BlackjackTrainer</span>
             </a>
         </li>
     </ul>
     <ul class="navbar-nav">
+
         <li class="nav-item" id="nav-play">
-            <a href="{% url 'Trainer:play' %}" class="nav-link">
-                <span class="nav-link-text"
-                        {% if curr_template == 'play' %}
-                            id="curr-template"
-                        {% endif %}>
-                    Play</span>
+            <a href="{% url 'Trainer:play' %}" class="nav-link" title="Play">
+                <svg class=""
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.058 512.058" style="enable-background:new 0 0 512.058 512.058;" xml:space="preserve" width="512px" height="512px">
+                    <g>
+                        <g>
+                            <g>
+                                <g>
+                                    <path d="M186.859,42.942l-9.872-30.448c-10.823,3.526-21.401,7.764-31.664,12.688l13.856,28.8     C168.147,49.684,177.395,45.995,186.859,42.942z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FDFEF6"></path>
+                                    <path d="M470.093,115.613C422.794,43.499,342.365,0.046,256.123,0.015c-15.442-0.001-30.853,1.381-46.048,4.128l5.712,31.488     c8.053-1.41,16.177-2.377,24.336-2.896V80.83c-35.502,3.198-69.183,17.152-96.544,40l-34.08-34.08     c7.507-6.528,15.433-12.557,23.728-18.048l-17.6-26.752C-2.597,119.492-35.577,278.192,41.965,396.416     s236.241,151.204,354.466,73.662S547.635,233.837,470.093,115.613z M479.307,240.014h-48c-3.202-35.501-17.156-69.181-40-96.544     l33.92-33.92C456.931,146.02,475.912,191.811,479.307,240.014z M272.123,32.83c48.205,3.402,93.996,22.389,130.464,54.096     l-33.92,33.92c-27.359-22.853-61.04-36.814-96.544-40.016V32.83z M87.003,109.502l33.952,33.968     c-22.85,27.361-36.81,61.041-40.016,96.544H33.115C36.45,191.818,55.363,146.012,87.003,109.502z M32.939,272.014h48     c3.202,35.501,17.156,69.181,40,96.544l-33.92,33.92C55.316,366.009,36.334,320.218,32.939,272.014z M240.123,479.198     c-48.205-3.402-93.996-22.389-130.464-54.096l33.92-33.92c27.359,22.853,61.04,36.814,96.544,40.016V479.198z M256.123,400.014     c-79.492-0.088-143.912-64.508-144-144c0-79.529,64.471-144,144-144s144,64.471,144,144S335.652,400.014,256.123,400.014z      M272.123,479.198v-48c35.502-3.198,69.183-17.152,96.544-40l33.92,33.92C366.117,456.82,320.326,475.801,272.123,479.198z      M425.211,402.478v-0.08l-33.92-33.92c22.835-27.339,36.794-60.989,40.016-96.464h48     C475.908,320.22,456.921,366.012,425.211,402.478z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FDFEF6"></path>
+                                    <path d="M256.123,137.966l-78.4,74.304c-23.733,23.492-23.928,61.775-0.436,85.508c16.389,16.557,40.833,22.226,62.836,14.572     v27.664h-16v32h64v-32h-16v-27.312c21.864,7.605,46.152,1.944,62.4-14.544c23.58-23.968,23.422-62.465-0.352-86.24     L256.123,137.966z M311.739,275.63v-0.064c-11.173,10.842-28.939,10.842-40.112,0l-15.504-15.584l-15.488,15.648     c-11.479,10.869-29.596,10.374-40.465-1.105c-10.434-11.02-10.454-28.267-0.047-39.311l56-53.152l55.616,52.8     C322.864,246.175,322.864,264.318,311.739,275.63z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FDFEF6"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
             </a>
         </li>
+
         {% if signed_in == True %}
             <li class="nav-item" id="nav-statistics">
-                <a href="#" class="nav-link">
-                    <span class="nav-link-text"
-                            {% if curr_template == 'statistics' %}
-                                id="curr-template"
-                            {% endif %}>
-                        Statistics</span>
+                <a href="{% url 'Trainer:statistics' %}" class="nav-link" title="Statistics">
+                    <svg id=""
+                         class="bi bi-bar-chart-fill" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="4" height="5" x="1" y="10" rx="1"></rect>
+                        <rect width="4" height="9" x="6" y="6" rx="1"></rect>
+                        <rect width="4" height="14" x="11" y="1" rx="1"></rect>
+                    </svg>
                 </a>
             </li>
         {% endif %}
+
         <li class="nav-item" id="nav-account">
-            {% if signed_in == True %}
-                <a href="{% url 'Users:account' %}" class="nav-link">
-                    <span class="nav-link-text" {% if curr_template == 'account' %} id="curr-template" {% endif %}>Account</span>
-                </a>
-            {% else %}
-                <a href="{% url 'Users:login' %}" class="nav-link">
-                    <span class="nav-link-text" {% if curr_template == 'login' %} id="curr-template" {% endif %}>Login</span>
-                </a>
-            {% endif %}
+            <button class="nav-link" id="nav-account-btn">
+                <svg id=""
+                     class="bi bi-caret-down-fill" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"></path>
+                </svg>
+                <svg id=""
+                     class="bi bi-person-fill" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
         </li>
+    </ul>
+</div>
+<div class="navbar-dropdown" id="navbar-dropdown">
+    <ul class="dropdown-list" id="dropdown-account">
+        {% if signed_in == True %}
+            <li class="dropdown-item"><a href="{% url 'Users:account' %}">Account</a></li>
+            <li class="dropdown-item"><a href="{% url 'Users:logout' %}">Logout</a></li>
+        {% else %}
+            <li class="dropdown-item"><a href="{% url 'Users:login' %}">Login</a></li>
+            <li class="dropdown-item"><a href="{% url 'Users:register' %}">Register</a></li>
+        {% endif %}
     </ul>
 </div>

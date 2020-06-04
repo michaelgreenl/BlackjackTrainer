@@ -1,14 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+{% block content %}
+    <div class="game-canvas">
+        <div class="start-scene-btns">
+            <ul class="start-scene-btns-list">
+                <li><button class="btn-no-background">Play</button></li>
+                <li><button class="btn-no-background">Rules</button></li>
+            </ul>
+        </div>
+    </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blackjack Trainer | Play</title>
-</head>
-<body>
-    {% include "navbar.html" %}
-</body>
-</html>
+{% endblock content %}
