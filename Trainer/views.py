@@ -1,28 +1,19 @@
 from django.shortcuts import render
-
-
-def home_view(request):
-    context = {
-        'signed_in': signed_in_check(),
-    }
-    return render(request, 'Trainer/home.html', context)
+from django.contrib.auth.decorators import login_required
 
 
 def play_view(request):
     context = {
-        'signed_in': signed_in_check(),
-        'curr_template': 'play',
+        'title': 'Play',
+        'signed_in': request.user.is_authenticated,
     }
     return render(request, 'Trainer/play.html', context)
 
 
+@login_required(login_url='login')
 def statistics_view(request):
     context = {
-        'signed_in': signed_in_check(),
-        'curr_template': 'statistics',
+        'title': 'statistics',
+        'signed_in': request.user.is_authenticated,
     }
-
-
-def signed_in_check():
-    # TODO: Add check for if the user is signed in
-    return True
+    return render(request, 'Trainer/statistics.html', context)
