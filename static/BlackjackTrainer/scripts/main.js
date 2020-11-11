@@ -1,3 +1,5 @@
+import mainScene from "./mainScene.js";
+
 let navAccountBtn = document.getElementById('nav-account-btn');
 let navDropdown = document.getElementById('navbar-dropdown');
 
@@ -29,4 +31,29 @@ if (alert !== null) {
         alert.style.display = 'none';
     });
 }
+
+// let playBtn = document.getElementById('play-btn');
+// let rulesBtn = document.getElementById('rules-btn');
+//
+// const config = {
+//     type: Phaser.AUTO,
+//     width: '100%',
+//     height: '100%',
+//     backgroundColor: '#FDFEF6',
+//     physics: {
+//         default: 'arcade',
+//         arcade: {
+//             debug: false,
+//         }
+//     },
+//     scene: [mainScene],
+// };
+//
+// playBtn.addEventListener('click', function () {
+//     const game = new Phaser.Game(config);
+//     game.scene.start('mainScene');
+// });
+//
+// let canvas = document.getElementsByTagName("canvas");
+
 

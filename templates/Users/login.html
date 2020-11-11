@@ -75,9 +75,11 @@
                             </svg>
                         </div>
                     </a>
-                    <button class="btn-submit" type="submit">Sign In</button>
+                    <button class="btn-1" type="submit">Sign In</button>
                 </div>
-                <small class="login-register-redirect">Don't have an account? <a href="{% url 'Users:register' %}">Sign up</a> </small>
+                <small class="login-register-redirect">Don't have an account?
+                    <a href="{% url 'Users:register' %}">Sign up</a>
+                </small>
                 <div class="alert-container">
                     {% for message in messages %}
                         <div class="alert alert-{{ message.tags }}" id="alert">

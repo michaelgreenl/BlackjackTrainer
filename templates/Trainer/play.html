@@ -2,13 +2,51 @@
 {% load static %}
 
 {% block content %}
+<script src="//cdn.jsdelivr.net/npm/phaser@3.23.0/dist/phaser.min.js"></script>
+<script type="module" src="{% static 'scripts/mainScene.js' %}"></script>
     <div class="game-canvas">
-        <div class="start-scene-btns">
-            <ul class="start-scene-btns-list">
-                <li><button class="btn-no-background">Play</button></li>
-                <li><button class="btn-no-background">Rules</button></li>
-            </ul>
+        <div class="canvas-header">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" id="alert" style="position: absolute; top: 1rem;">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="canvas-body">
+            <div class="opening-scene">
+                <div class="start-scene-logo">
+                    <div class="start-scene-title">
+                        <svg class="title-icon"
+                             xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 512 512">
+                            <g>
+                                <path d="M371.49,140.51A163.322,163.322,0,1,1,256,92.67,162.8,162.8,0,0,1,371.49,140.51Z" style="fill:#ecede4" data-original="#CCD3DF" class="active-path" data-old_color="#CCD3DF"></path>
+                                <path d="M501,256H419.33a162.8,162.8,0,0,0-47.84-115.49l57.75-57.75A244.214,244.214,0,0,1,501,256Z" style="fill:#8D353C" data-original="#50DD5A" class="" data-old_color="#50DD5A"></path>
+                                <path d="M256,11V92.67a162.8,162.8,0,0,0-115.49,47.84L82.76,82.76A244.214,244.214,0,0,1,256,11Z" style="fill:#8D353C" data-original="#50DD5A" class="" data-old_color="#50DD5A"></path>
+                                <path d="M92.67,256a162.8,162.8,0,0,0,47.84,115.49L82.76,429.24A244.214,244.214,0,0,1,11,256Z" style="fill:#8D353C" data-original="#50DD5A" class="" data-old_color="#50DD5A"></path>
+                                <path d="M371.49,371.49l57.75,57.75A244.214,244.214,0,0,1,256,501V419.33A162.8,162.8,0,0,0,371.49,371.49Z" style="fill:#8D353C" data-original="#50DD5A" class="" data-old_color="#50DD5A"></path>
+                                <path d="M256,419.33V501A244.214,244.214,0,0,1,82.76,429.24l57.75-57.75A162.8,162.8,0,0,0,256,419.33Z" style="fill:#FDFEF6" data-original="#D8FF33" class="" data-old_color="#D8FF33"></path>
+                                <path d="M419.33,256H501a244.214,244.214,0,0,1-71.76,173.24l-57.75-57.75A162.8,162.8,0,0,0,419.33,256Z" style="fill:#FDFEF6" data-original="#D8FF33" class="" data-old_color="#D8FF33"></path>
+                                <path d="M429.24,82.76l-57.75,57.75A162.8,162.8,0,0,0,256,92.67V11A244.214,244.214,0,0,1,429.24,82.76Z" style="fill:#FDFEF6" data-original="#D8FF33" class="" data-old_color="#D8FF33"></path>
+                                <path d="M82.76,82.76l57.75,57.75A162.8,162.8,0,0,0,92.67,256H11A244.214,244.214,0,0,1,82.76,82.76Z" style="fill:#FDFEF6" data-original="#D8FF33" class="" data-old_color="#D8FF33"></path>
+                                <path d="M256,302.76l18.18,41.63a48.966,48.966,0,0,0-36.36,0Z" style="fill:#8D353C" data-original="#50DD5A" class="" data-old_color="#50DD5A"></path>
+                                <path d="M322.27,233.92a46.887,46.887,0,0,1-65.79,66.82l-.43-.02a46.888,46.888,0,1,1-66.31-66.31l66.21-66.8Z" style="fill:#8D353C" data-original="#50DD5A" class="" data-old_color="#50DD5A"></path>
+                                <path d="M174.51,371.49A163.341,163.341,0,0,1,273,93.548a165.182,165.182,0,0,0-17-.878,163.33,163.33,0,0,0,0,326.66,165.182,165.182,0,0,0,17-.878A162.794,162.794,0,0,1,174.51,371.49Z" style="fill:#FDFEF6" data-original="#F4F8FC" class="" data-old_color="#F4F8FC"></path>
+                                <path d="M256,5A251,251,0,0,0,78.517,433.483,251,251,0,1,0,433.483,78.517,249.348,249.348,0,0,0,256,5Zm6,12.074A237.223,237.223,0,0,1,420.7,82.812l-49.349,49.349A168.693,168.693,0,0,0,262,86.785Zm-12,0V86.785a168.693,168.693,0,0,0-109.355,45.376L91.3,82.812A237.223,237.223,0,0,1,250,17.074ZM82.812,91.3l49.349,49.349A168.693,168.693,0,0,0,86.785,250H17.074A237.223,237.223,0,0,1,82.812,91.3ZM17.074,262H86.785a168.693,168.693,0,0,0,45.376,109.355L82.812,420.7A237.223,237.223,0,0,1,17.074,262ZM250,494.926A237.223,237.223,0,0,1,91.3,429.188l49.349-49.349A168.693,168.693,0,0,0,250,425.215ZM98.667,256c0-86.754,70.579-157.333,157.333-157.333S413.333,169.246,413.333,256,342.754,413.333,256,413.333,98.667,342.754,98.667,256ZM262,494.926V425.215a168.693,168.693,0,0,0,109.355-45.376L420.7,429.188A237.223,237.223,0,0,1,262,494.926ZM429.188,420.7l-49.349-49.349A168.693,168.693,0,0,0,425.215,262h69.711A237.223,237.223,0,0,1,429.188,420.7ZM425.215,250a168.693,168.693,0,0,0-45.376-109.355L429.188,91.3A237.223,237.223,0,0,1,494.926,250Z" style="fill:#242423" data-original="#284268" class="" data-old_color="#284268"></path>
+                                <path d="M260.192,163.364a6,6,0,0,0-4.242-1.757h-.013a6,6,0,0,0-4.249,1.777L185.5,230.167a52.908,52.908,0,0,0,58.053,86.111l-11.229,25.713a6,6,0,0,0,7.727,7.973,42.779,42.779,0,0,1,31.908,0,6,6,0,0,0,7.727-7.973l-11.5-26.327a52.9,52.9,0,0,0,58.327-85.988ZM256,334.874a54.562,54.562,0,0,0-7.718.549L256,317.75l7.718,17.673A54.562,54.562,0,0,0,256,334.874Zm62.025-38.886a40.877,40.877,0,0,1-57.367.448,6,6,0,0,0-3.934-1.691l-.43-.017a5.99,5.99,0,0,0-4.488,1.752A40.89,40.89,0,1,1,194,238.635l61.972-62.524,62.055,62.05A40.94,40.94,0,0,1,318.025,295.988Z" style="fill:#242423" data-original="#284268" class="" data-old_color="#284268"></path>
+                            </g>
+                        </svg>
+                        <div class="title-text">
+                            <h1>BlackjackTrainer</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="start-scene-btns">
+                    <button class="btn-2" id="play-btn">Play</button>
+                    <button class="btn-2" id="rules-btn">Rules</button>
+                </div>
+            </div>
         </div>
     </div>
-
 {% endblock content %}
